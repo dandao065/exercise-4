@@ -17,6 +17,9 @@ internal class Exercise_04
         Console.WriteLine("\nBai 2. Tinh giai thua.");
         Console.Write("Nhap 1 so: ");
         int gt_num=Convert.ToInt32(Console.ReadLine());
+        if (giai_thua(gt_num) == 0 )
+            Console.WriteLine($"{gt_num} khong co giai thua.");
+        else
         Console.WriteLine($"Giai thua cua {gt_num} bang {giai_thua(gt_num)}.");
 
         Console.WriteLine("\nBai 3. Kiem tra so nguyen to.");
@@ -83,14 +86,19 @@ internal class Exercise_04
     //2. Write a C# function to calculate the factorial of a number (a non-negative integer). The function accepts the number as an argument.
     static int giai_thua(int num)
     {
+        if (num < 0)
+        {
+            return 0;
+        }
         int giai_thua = 1;
         for (int i = 1; i <= num; i++)
-        {
-            giai_thua*= i;
-
-        }
+            {
+                if (num > 0)
+                    giai_thua *= i;
+                else break;
+            }
         return giai_thua;
-    }
+    }    
 
     //3. Write a C# function that takes a number as a parameter and checks whether the number is prime or not.
     static bool is_prime(long num)
